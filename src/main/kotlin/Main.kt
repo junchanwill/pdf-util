@@ -6,7 +6,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 fun main(args: Array<String>) {
-    // ファイルが指定されてなかったら終了
+    // 引数が指定されてなかったら終了
     if (args.isEmpty()) return
 
     // 出力ファイルの頭に日付をつけるための処理
@@ -16,6 +16,7 @@ fun main(args: Array<String>) {
     try {
         val pdDocument = PDDocument()
         val merger = PDFMergerUtility()
+        // 引数に指定されているものを全部ファイルだと思って結合対象にする
         args.forEach {
             merger.addSource(File(it))
         }
